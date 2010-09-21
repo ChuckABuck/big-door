@@ -40,6 +40,14 @@ module BigDoor
 						  NamedTransaction.new(result)
 						when 'named_transaction_group'
 							NamedTransactionGroup.new(result)
+						when 'named_level'
+						  NamedLevel.new(result)
+						when 'named_level_collection'
+						  NamedLevelCollection.new(result)
+						when 'named_award'
+						  NamedAward.new(result)
+						when 'named_award_collection'
+						  NamedAwardCollection.new(result)
 						else
 							result
 					end
