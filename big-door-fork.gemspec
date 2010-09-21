@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{big-door}
+  s.name = %q{big-door-fork}
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Michael Lavrisha"]
-  s.date = %q{2010-08-30}
-  s.description = %q{A gem to interact with Big Door Media's API}
-  s.email = %q{mlavrisha@trada.com}
+  s.authors = ["Michael Lavrisha", "Daniel Morris"]
+  s.date = %q{2010-09-21}
+  s.description = %q{A fork of big-door (gem to interact with Big Door Media's API) to support awards and levels better.}
+  s.email = %q{mlavrisha@trada.com danieljohnmorris@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "big-door.gemspec",
      "features/big-door.feature",
      "features/step_definitions/big-door_steps.rb",
      "features/support/env.rb",
@@ -55,15 +56,16 @@ Gem::Specification.new do |s|
      "vcr_cassettes/user/all.yml",
      "vcr_cassettes/user/create.yml",
      "vcr_cassettes/user/currency_balance.yml",
+     "vcr_cassettes/user/delete.yml",
      "vcr_cassettes/user/new.yml",
      "vcr_cassettes/user/new_currency_balance.yml",
      "vcr_cassettes/user/specific.yml"
   ]
-  s.homepage = %q{http://github.com/vrish88/big-door}
+  s.homepage = %q{http://github.com/danieljohnmorris/big-door}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Big Door Media gem}
+  s.summary = %q{Fork of Big Door Media gem}
   s.test_files = [
     "spec/big-door_spec.rb",
      "spec/spec_helper.rb",
