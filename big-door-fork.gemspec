@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{big-door-fork}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Lavrisha", "Daniel Morris"]
-  s.date = %q{2010-09-21}
+  s.date = %q{2010-09-22}
   s.description = %q{A fork of big-door (gem to interact with Big Door Media's API) to support awards and levels better.}
   s.email = %q{mlavrisha@trada.com danieljohnmorris@gmail.com}
   s.extra_rdoc_files = [

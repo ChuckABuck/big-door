@@ -5,6 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "big-door-fork"
+    gem.version = "0.0.1"
     gem.summary = %Q{Fork of Big Door Media gem}
     gem.description = %Q{A fork of big-door (gem to interact with Big Door Media's API) to support awards and levels better.}
     gem.email = "mlavrisha@trada.com danieljohnmorris@gmail.com"
