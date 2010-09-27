@@ -13,7 +13,7 @@ module BigDoor
 				instance_variable_set("@#{key}", val)
 			end
 		end
-
+		
 		def self.all
 			perform_request('get', 'named_award')
 		end
