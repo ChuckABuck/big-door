@@ -16,6 +16,10 @@ module BigDoor
 			base.extend ClassMethods
 		end
 		
+		def remote_id
+		    @id || nil
+		end
+
 		def self.app_key
 			@app_key
 		end
@@ -60,7 +64,9 @@ module BigDoor
 		end
 
 		def perform_request(*args)
-			request_type, action, args = args
+			request_type, action, args, envelope = args
+			envelope = {} unless envelope
+
 			raise BigDoorError, "Unknown request type" unless ['get', 'post', 'put', 'delete'].include? request_type
 
 			query = args
@@ -76,7 +82,12 @@ module BigDoor
 				params[:body][:time] = "%.2f" % Time.now.to_f
 				params[:body][:token] = SecureRandom.hex
 				query = {}
+				
+				envelope.each_pair do |key, value|
+				  params[:body][key] = value
+				end
 			end
+			params.keys.sort!
 
 			path = [BASE_URI, ClassMethods.app_key, action].join('/')
 			params[:query] = query
@@ -84,6 +95,11 @@ module BigDoor
 			params[:query][:sig] = calculate_sha2_hash(path, params)
 			params[:query][:format] = 'json'
 			url = [BASE_URL, path].join('/')
+			
+			p request_type
+			p url
+			p params
+			
 			parse_response(BigDoor::Request.send(request_type, url, params))
 		end
 
