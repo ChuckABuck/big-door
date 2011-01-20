@@ -20,8 +20,12 @@ module BigDoor
 			perform_request('get', 'named_transaction_group')
 		end
 		
-		def self.find(params={})
-			results = perform_request('get', 'named_transaction_group', params)
+		def self.find(title)
+      @cache ||= Hash.new do |hash, key|
+        groups = NamedTransactionGroup.all
+        hash[key] = groups.find_all { |g| g.end_user_title == key }.first
+      end
+      @cache[title]
 		end
 	end
 end
