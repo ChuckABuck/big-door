@@ -36,6 +36,10 @@ module BigDoor
 			perform_request('get', "end_user/#{self.end_user_login}/transaction")
 		end
 		
+		def add_default_points(named_transaction_group)
+			perform_request('post', "named_transaction_group/#{named_transaction_group.id}/execute", {:id => self.end_user_login })
+		end
+		
 		def add_points(named_transaction_group, points)
 			perform_request('post', "named_transaction_group/#{named_transaction_group.id}/execute", {:id => self.end_user_login, :amount => points})
 		end
