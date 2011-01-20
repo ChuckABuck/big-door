@@ -36,14 +36,14 @@ module BigDoor
 			perform_request('get', "end_user/#{self.end_user_login}/transaction")
 		end
 		
-		def add_default_points(named_transaction_group)
-			perform_request('post', "named_transaction_group/#{named_transaction_group.id}/execute", {:id => self.end_user_login })
+		def add_default_points(title_or_group)
+      execute_named_transaction_group(title_or_group, { :id => self.end_user_login })
 		end
 		
-		def add_points(named_transaction_group, points)
-			perform_request('post', "named_transaction_group/#{named_transaction_group.id}/execute", {:id => self.end_user_login, :amount => points})
+		def add_points(title_or_group, points)
+      execute_named_transaction_group(title_or_group, { :id => self.end_user_login, :amount => points })
 		end
-		
+
 		def get_currency_balance(currency=nil)
 			params = {}
 			params[:id] = currency.id.to_s unless currency.nil?
@@ -53,5 +53,16 @@ module BigDoor
 
 			return result
 		end
+
+    private
+      def execute_named_transaction_group(title_or_group, params)
+        id = case title_or_group
+          when String
+            NamedTransactionGroup.find(title_or_group).id
+          else
+            title_or_group.id
+        end
+        perform_request('post', "named_transaction_group/#{id}/execute", params)
+      end
 	end
 end
