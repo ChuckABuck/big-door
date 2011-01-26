@@ -24,3 +24,11 @@ Feature: Provide API access to Big Door media
 		And I have a "NamedTransactionGroup" named "Not so basic"
 		When I add "30" points to users's account
 		Then their account should have "30" more points
+
+	Scenario: Checking user level(s)
+
+	Scenario: Setting user level
+
+	Scenario: Checking user awards
+
+	Scenario: Setting user awards

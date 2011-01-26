@@ -4,12 +4,13 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "big-door"
-    gem.summary = %Q{Big Door Media gem}
-    gem.description = %Q{A gem to interact with Big Door Media's API}
-    gem.email = "mlavrisha@trada.com"
-    gem.homepage = "http://github.com/vrish88/big-door"
-    gem.authors = ["Michael Lavrisha"]
+    gem.name = "big-door-fork"
+    gem.version = "0.0.1"
+    gem.summary = %Q{Fork of Big Door Media gem}
+    gem.description = %Q{A fork of big-door (gem to interact with Big Door Media's API) to support awards and levels better.}
+    gem.email = "mlavrisha@trada.com danieljohnmorris@gmail.com"
+    gem.homepage = "http://github.com/danieljohnmorris/big-door"
+    gem.authors = ["Michael Lavrisha", "Daniel Morris"]
     gem.add_development_dependency "rspec", "~> 2.0.0.beta.19"
     gem.add_development_dependency "cucumber", "~> 0.8.5"
     gem.add_runtime_dependency "httparty", "~>0.6.0"

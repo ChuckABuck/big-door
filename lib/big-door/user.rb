@@ -44,6 +44,26 @@ module BigDoor
       execute_named_transaction_group(title_or_group, { :id => self.end_user_login, :amount => points })
 		end
 
+		def add_points(named_transaction_group, points)
+			perform_request('post', "named_transaction_group/#{named_transaction_group.id}/execute", {:id => self.end_user_login, :amount => points})
+		end
+
+		def level
+			perform_request('get', "end_user/#{self.end_user_login}/level")
+		end
+
+		def add_level(named_level_id)
+			perform_request('post', "end_user/#{self.end_user_login}/level", {}, {:named_level_id => named_level_id})
+		end
+
+		def award
+			perform_request('get', "end_user/#{self.end_user_login}/award")
+		end
+
+		def add_award(named_award_id)
+			perform_request('post', "end_user/#{self.end_user_login}/award", {}, {:named_award_id => named_award_id})
+		end
+				
 		def get_currency_balance(currency=nil)
 			params = {}
 			params[:id] = currency.id.to_s unless currency.nil?
